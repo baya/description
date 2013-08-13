@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = 'help extracting database scheme doc from activerecord migration files'
   s.authors     = ['Kayak Jiang']
   s.email       = 'kayak.jiang@gmail.com'
-  s.files       = ['lib/description.rb']
+  s.files       = ['lib/description.rb', 'README.md']
   s.homepage    = 'https://github.com/baya/description'
   s.license     = 'MIT'
 end
