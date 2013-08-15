@@ -1,5 +1,3 @@
-require 'dun'
-require 'terminal-table'
-require 'sexp_path'
-require 'ruby_parser'
+require 'bundler/setup'
+Bundler.require(:default)
 require 'activities/parse_create_table'

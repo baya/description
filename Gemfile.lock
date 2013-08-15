@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dun (0.0.1)
+    ruby_parser (3.2.2)
+      sexp_processor (~> 4.1)
+    sexp_path (0.5.1)
+      sexp_processor (~> 4.2)
+    sexp_processor (4.2.1)
+    terminal-table (1.4.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dun
+  ruby_parser
+  sexp_path
+  terminal-table
