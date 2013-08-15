@@ -28,6 +28,15 @@ module Description
 
       result[:table_name] = table_name
 
+      (sexp / q_columns).each {|res|
+        if res['column_name']
+          column = {}
+          column[:name] = res['column_name']
+          column[:type] = res['column_type']
+          result[:columns] << column
+        end
+      }
+
       result
     end
 
@@ -40,6 +49,10 @@ module Description
     def q_create_table
       Q?{ s(:call, nil, :create_table, s(:lit, atom % 'table_name')) }
     end
-    
+
+    def q_columns
+      Q?{s(:call, s(:lvar, atom), atom % 'column_type', s(:lit, atom % 'column_name'), ___)}
+    end
+
   end
 end
