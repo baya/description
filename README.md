@@ -41,15 +41,8 @@ end
 
 will be describled to a ascill table
 
-| Column     | Type    | Modifiers | Comment |
-|------------+---------+-----------+---------|
-| id         | integer |           |         |
-|------------+---------+-----------+---------|
-| photo      | string  |           |         |
-|------------+---------+-----------+---------|
-| startup_id | integer |           |         |
-|------------+---------+-----------+---------|
-| created_at | date    |           |         |
-|------------+---------+-----------+---------|
-| updated_at | date    |           |         |
-|------------+---------+-----------+---------|
+First Header | Second Header | Third Header
+------------ | ------------- | ------------
+Content Cell | Content Cell  | Content Cell
+Content Cell | Content Cell  | Content Cell
+
