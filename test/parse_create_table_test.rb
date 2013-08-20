@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'test_helper'
 
 class ParseCreateTableTest < Test::Unit::TestCase
@@ -9,6 +10,7 @@ class ParseCreateTableTest < Test::Unit::TestCase
 
   def test_get_table_name
     result = Description::ParseCreateTable text: @create_table_code
+    pp result
     assert_equal result[:table_name], :contests
   end
 
@@ -20,6 +22,11 @@ class ParseCreateTableTest < Test::Unit::TestCase
   def test_get_modifiers
     result = Description::ParseCreateTable text: @create_table_code
     assert_equal result[:columns].last[:modifiers], {default: 0}
+  end
+  
+  def test_get_comment
+    result = Description::ParseCreateTable text: @create_table_code
+    assert_equal result[:columns].last[:comment], '参赛人数'
   end
     
 end
