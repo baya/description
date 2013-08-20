@@ -16,5 +16,10 @@ class ParseCreateTableTest < Test::Unit::TestCase
     result = Description::ParseCreateTable text: @create_table_code
     assert_equal result[:columns].size, 17
   end
+
+  def test_get_modifiers
+    result = Description::ParseCreateTable text: @create_table_code
+    assert_equal result[:columns].last[:modifiers], {default: 0}
+  end
     
 end
