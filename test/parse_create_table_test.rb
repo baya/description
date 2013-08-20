@@ -21,7 +21,7 @@ class ParseCreateTableTest < Test::Unit::TestCase
 
   def test_get_modifiers
     result = Description::ParseCreateTable text: @create_table_code
-    assert_equal result[:columns].last[:modifiers], {default: 0}
+    assert_equal result[:columns].last[:modifiers], "default:0"
   end
   
   def test_get_comment

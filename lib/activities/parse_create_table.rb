@@ -46,7 +46,7 @@ module Description
         if res['column_name']
           column = build_column res
           modifiers = (res['modifiers'] / q_modifiers).map {|res| res['modifier'] }
-          column[:modifiers] = Hash[*modifiers]
+          column[:modifiers] = Hash[*modifiers].map {|k, v| "#{k}:#{v}"}.join(', ')
           result[:columns] << column
         end
       }

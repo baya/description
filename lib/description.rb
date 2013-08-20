@@ -3,3 +3,5 @@ Bundler.require(:default)
 
 require 'pp'
 require 'activities/parse_create_table'
+require 'activities/create_ascii_table'
+require 'activities/describle_table'
