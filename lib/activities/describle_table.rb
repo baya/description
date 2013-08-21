@@ -12,11 +12,7 @@ class DescribleTable < Dun::Activity
 
   def rows
     columns.map {|column|
-      [column[:name],
-       column[:type],
-       column[:modifiers],
-       column[:comment]
-      ]
+      [column[:name], column[:type], column[:modifiers], column[:comment]]
     }
   end
   

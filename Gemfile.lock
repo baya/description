@@ -1,7 +1,17 @@
+GIT
+  remote: git://github.com/baya/ground.git
+  revision: 481c7bf9c2c1943bb27641a84be12b5b52b885d4
+  ref: 481c7bf9
+  specs:
+    ground (0.0.1)
+      dun
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
     dun (0.0.1)
+    rack (1.5.2)
     ruby_parser (3.2.2)
       sexp_processor (~> 4.1)
     sexp_path (0.5.1)
@@ -14,6 +24,7 @@ PLATFORMS
 
 DEPENDENCIES
   dun
+  ground!
   ruby_parser
   sexp_path
   terminal-table
