@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/baya/ground.git
-  revision: 481c7bf9c2c1943bb27641a84be12b5b52b885d4
-  ref: 481c7bf9
+  revision: 9682e8fed4fda05d77bf4301c3ae06fcede17ecd
+  ref: 9682e8fed4f
   specs:
     ground (0.0.1)
       dun

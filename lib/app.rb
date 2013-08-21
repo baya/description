@@ -4,3 +4,4 @@ module Description
     use Rack::Static, urls: ['/assets']
   end
 end
+
