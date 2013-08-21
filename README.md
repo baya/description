@@ -39,7 +39,7 @@ end
 
 ```
 
-will be describled to a ascill table
+will be describled to a markdown table
 
 First Header | Second Header | Third Header
 ------------ | ------------- | ------------

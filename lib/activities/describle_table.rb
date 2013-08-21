@@ -4,7 +4,7 @@ class DescribleTable < Dun::Activity
   set :header, ['Column', 'Type', 'Modifiers', 'Comment']
 
   def call
-    CreateAsciiTalbe header: header, rows: rows
+    CreateMarkdownTalbe header: header, rows: rows
   end
 
   private
