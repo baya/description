@@ -10,7 +10,6 @@ class ParseCreateTableTest < Test::Unit::TestCase
 
   def test_get_table_name
     result = Description::ParseCreateTable text: @create_table_code
-    pp result
     assert_equal result[:table_name], :contests
   end
 
