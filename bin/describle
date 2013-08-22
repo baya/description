@@ -6,4 +6,7 @@ $LOAD_PATH.unshift lib_dir unless $LOAD_PATH.include?(lib_dir)
 require 'description'
 
 options = ParseCommandOptions args: ARGV
-Rack::Server.start app: Description::App, Port: options[:port]
+Rack::Server.start(app:    Description::App,
+                   Port:   options[:port],
+                   server: options[:server]
+                   )

@@ -15,6 +15,7 @@ class ParseCommandOptions < Dun::Activity
         options[:port] = port
       }
 
+      options[:server] = 'webrick'
       opts.on("-s", "--server SERVER", "server using SERVER") {|server|
         options[:server] = server
       }
