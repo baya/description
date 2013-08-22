@@ -5,7 +5,7 @@ class DescribleTable < Dun::Activity
 
   def call
     table = CreateMarkdownTalbe header: header, rows: rows
-    "### #{table_name} \n" + table
+    "### #{table_name} \n\n" + table
   end
 
   private

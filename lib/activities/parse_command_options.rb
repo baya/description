@@ -5,19 +5,22 @@ class ParseCommandOptions < Dun::Activity
   def call
     options = {}
     opt_parser = OptionParser.new do |opts|
-      
-      opts.on("-m", "--migrations DIR", "specify migration file dir") {|dir|
-        options[:migration_dir] = dir
-      }
 
+      opts.banner = "Usage: describle path/to/migration-files-dir [options]"
+      
       options[:port] = '9393'
       opts.on("-p", "--port PORT", "use PORT (default: 9393)") {|port|
         options[:port] = port
       }
 
       options[:server] = 'webrick'
-      opts.on("-s", "--server SERVER", "server using SERVER") {|server|
+      opts.on("-s", "--server SERVER", "server using SERVER (default: webrick)") {|server|
         options[:server] = server
+      }
+
+      opts.on("-h", "--help", "Show this message") {
+        puts opts
+        exit
       }
       
     end

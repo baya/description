@@ -1,11 +1,25 @@
 #!/usr/bin/env ruby
 
-lib_dir = '/Users/jiangguimin/Projects/description/lib'
-# lib_dir = '/Users/jim/Projects/description/lib'
+# lib_dir = '/Users/jiangguimin/Projects/description/lib'
+lib_dir = '/Users/jim/Projects/description/lib'
 $LOAD_PATH.unshift lib_dir unless $LOAD_PATH.include?(lib_dir)
 require 'description'
 
 options = ParseCommandOptions args: ARGV
+migration_dir =  ARGV[0]
+
+raise 'Please specify the migration files dir, use -h option to see detail' if migration_dir.nil?
+
+migration_files = Dir["#{migration_dir}**/*.rb"].sort
+puts "get following migration files: \n#{migration_files.join("\n")}"
+
+migration_files.each {|file|
+  table = Description::ParseCreateTable text: File.read(file)
+  Description::Table_Set << table
+}
+
+pp Description::Table_Set
+
 Rack::Server.start(app:    Description::App,
                    Port:   options[:port],
                    server: options[:server]

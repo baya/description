@@ -7,7 +7,7 @@ Description help us to extract database schema doc from migration files
 Usage
 ==========
 
-describe path/to/migration_files
+describe path/to/migration/dir
 
 the following ruby migration code:
 
@@ -40,7 +40,7 @@ end
 
 ```
 
-will be describled to a markdown table,
+will be describled to a html table,
 
 ### contests
 Column           | Type    | Modifiers             | Comment                                        

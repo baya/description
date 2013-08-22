@@ -16,7 +16,7 @@ class CreateContests < ActiveRecord::Migration
       t.integer    :prize_status, default: 0        # 是否开放赞助, 0 open to others, 1 do it myself 2 none
       t.integer    :user_id                         # 创建者id
       t.string     :user_sn                         # 创建者sn
-      t.integer    :kind, default: 0                # 0 用户发起的比赛，1 赞助商比赛
+      t.integer    :kind, default: ''                # 0 用户发起的比赛，1 赞助商比赛
       t.integer    :view_count, default: 0          # 浏览次数
       t.integer    :join_count, default: 0          # 参赛人数
 

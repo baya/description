@@ -20,7 +20,7 @@ module Description
     set :q_create_table, Q?{ s(:call, nil, :create_table, s(:lit, atom % 'table_name')) }
     set :q_columns_with_modifiers,
     Q?{s(:call, s(:lvar, atom), atom % 'column_type', s(:lit, atom % 'column_name'), _ % 'modifiers')}
-    set :q_modifiers, Q?{any(s(:lit, atom % 'modifier'), s(atom % 'modifier'))}
+    set :q_modifiers, Q?{any(s(atom, atom % 'modifier'), s(atom % 'modifier'))}
     set :q_columns_without_modifiers, Q?{s(:call, s(:lvar, atom), atom % 'column_type', s(:lit, atom % 'column_name'))}
     set :q_columns, Q?{s(:call, s(:lvar, atom), atom % 'column_type', s(:lit, atom % 'column_name'), ___)}
 
@@ -46,7 +46,11 @@ module Description
         if res['column_name']
           column = build_column res
           modifiers = (res['modifiers'] / q_modifiers).map {|res| res['modifier'] }
-          column[:modifiers] = Hash[*modifiers].map {|k, v| "#{k}:#{v}"}.join(', ')
+          column[:modifiers] = Hash[*modifiers].map {|k, v|
+            v = "'#{v}'" if v == ''
+            "#{k}:#{v}"
+          }.join(', ')
+          
           result[:columns] << column
         end
       }
