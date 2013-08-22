@@ -1,8 +1,9 @@
-module Ground
+module Tables
 
-  class Tables < State
+  class Index < Ground::State
 
     def call
+      text 'hello description'
     end
     
   end

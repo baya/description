@@ -9,7 +9,8 @@ class ParseCommandOptions < Dun::Activity
       opts.on("-m", "--migrations DIR", "specify migration file dir") {|dir|
         options[:migration_dir] = dir
       }
-      
+
+      options[:port] = '9393'
       opts.on("-p", "--port PORT", "use PORT (default: 9393)") {|port|
         options[:port] = port
       }
