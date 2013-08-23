@@ -17,6 +17,7 @@ require 'activities/create_markdown_table'
 require 'activities/describle_table'
 require 'activities/parse_command_options'
 require 'activities/states/tables'
+require 'activities/states/index'
 require 'config/routes'
 require 'config/sets'
 require 'config/helpers'
@@ -25,7 +26,7 @@ module Description
   Table_Set = []
   App = Ground 'description' do
     use Rack::ShowExceptions
-    use Rack::Static, urls: ['/assets']
+    use Rack::Static, urls: ['/js', '/css', '/lib', '/partials'], :root => "lib/app"
   end
 end
 

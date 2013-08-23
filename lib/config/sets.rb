@@ -1,7 +1,4 @@
 Ground do
   set :logger, ::Logger.new(STDOUT)
-  set :markdown, ::Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-                                           autolink: true,
-                                           space_after_headers: true
-                                           )
+  set :root, File.expand_path(File.dirname(File.dirname(__FILE__)))
 end
