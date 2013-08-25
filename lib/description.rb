@@ -6,8 +6,8 @@ require 'dun'
 require 'ground'
 require 'sexp_path'
 require 'ruby_parser'
-require 'redcarpet'
 require 'kramdown'
+require 'json'
 require 'pp'
 require 'optparse'
 require 'logger'
@@ -27,6 +27,7 @@ module Description
   App = Ground 'description' do
     use Rack::ShowExceptions
     use Rack::Static, urls: ['/js', '/css', '/lib', '/partials'], :root => "lib/app"
+    use Ground::UrlSuffix
   end
 end
 

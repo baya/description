@@ -1,0 +1,26 @@
+<div class='main'>
+  <div class='nav'>
+    <a href="#/tables">所有表</a>
+  </div>
+  <div class="markdown-body">
+    <h3>{{table.table_name}}</h3>
+    <table>
+      <thead>
+	<tr>
+	  <th>Column</th>
+	  <th>Type</th>
+	  <th>Modifiers</th>
+	  <th>Comment</th>
+	</tr>
+      </thead>
+      <tbody>
+	<tr ng-repeat="column in table.columns">
+	  <td>{{ column.name }}</td>
+	  <td>{{ column.type }}</td>
+	  <td>{{ column.modifiers }}</td>
+	  <td>{{ column.comment }}</td>
+	</tr>   
+      </tbody>
+    </table>
+  </div>
+</div>
