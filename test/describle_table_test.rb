@@ -7,9 +7,9 @@ class DescribleTableTest < Test::Unit::TestCase
     @create_table_code = File.read("#{migration_dir}/create_contests.rb")
   end
 
-  def test_describle_table
-    result = Description::ParseCreateTable text: @create_table_code
-    table = DescribleTable result
+  def test
+    tables = Description::ParseCreateTable text: @create_table_code
+    table = DescribleTable tables[0]
     puts table
   end
   

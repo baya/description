@@ -6,17 +6,16 @@ $LOAD_PATH.unshift lib_dir unless $LOAD_PATH.include?(lib_dir)
 require 'description'
 
 options = ParseCommandOptions args: ARGV
-migration_dir =  ARGV[0]
+# migration_dir =  ARGV[0]
 
-raise 'Please specify the migration files dir, use -h option to see detail' if migration_dir.nil?
+# raise 'Please specify the migration files dir, use -h option to see detail' if migration_dir.nil?
 
-migration_files = Dir["#{migration_dir}**/*.rb"].sort
-puts "get following migration files: \n#{migration_files.join("\n")}"
+# migration_files = Dir["#{migration_dir}**/*.rb"].sort
+scheme_file = ARGV[0]
 
-migration_files.each {|file|
-  table = Description::ParseCreateTable text: File.read(file)
-  Description::Table_Set << table
-}
+# migration_files.each {|file|
+  Description::Table_Set = Description::ParseCreateTable text: File.read(scheme_file)
+# }
 
 pp Description::Table_Set
 
