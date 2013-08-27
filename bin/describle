@@ -6,18 +6,41 @@ $LOAD_PATH.unshift lib_dir unless $LOAD_PATH.include?(lib_dir)
 require 'description'
 
 options = ParseCommandOptions args: ARGV
-# migration_dir =  ARGV[0]
+app_dir =  ARGV[0]
 
-# raise 'Please specify the migration files dir, use -h option to see detail' if migration_dir.nil?
+raise 'Please specify the app dir, use -h option to see detail' if app_dir.nil?
 
-# migration_files = Dir["#{migration_dir}**/*.rb"].sort
-scheme_file = ARGV[0]
+schema_file = "#{app_dir}/db/schema.rb"
+migration_files = Dir["#{app_dir}/db/migrate/**/*.rb"].sort
 
-# migration_files.each {|file|
-  Description::Table_Set = Description::ParseCreateTable text: File.read(scheme_file)
-# }
+pp migration_files
 
-pp Description::Table_Set
+Description::Table_Set = Description::ParseCreateTable text: File.read(schema_file)
+
+migration_files.each {|file|
+  text = File.read(file)
+  if text.include?('create_table')
+    ops = Description::ParseCreateTableWithComment text: text
+  elsif text.include?('add_column')
+    ops = Description::ParseAddColumn text: text
+  else
+    next
+  end
+
+  ops = ops.select {|op| op[:comment] }
+
+  pp ops
+  pp Description::Table_Set
+
+  ops.each {|op|
+    set = Description::Table_Set.detect {|set| set[:table_name] == op[:table_name]}
+    column = set[:columns].detect {|column| column[:column_name] == op[:column_name]}
+    column[:comment] = op[:comment]
+  }
+  
+}
+
+
 
 Rack::Server.start(app:    Description::App,
                    Port:   options[:port],

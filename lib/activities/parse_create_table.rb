@@ -3,8 +3,8 @@ module Description
   #   table_name: 'contests',
   #   columns: [
   #              {
-  #                name:      'id', 
-  #                type:      'integer', 
+  #                column_name:      'id', 
+  #                column_type:      'integer', 
   #                modifiers: {}, 
   #                comment:   ''
   #               }, 
@@ -14,7 +14,6 @@ module Description
   class ParseCreateTable < Dun::Activity
 
     data_reader :text
-    attr_reader :code_lines
 
     set :q_create_table, Q?{
       s(:iter,
@@ -54,14 +53,7 @@ module Description
         s(:lit, atom % 'column_name'), ___)
     }
 
-    def initialize(data)
-      super
-      @code_lines = text.split("\n")
-    end
-
     def call
-      # pp sexp
-      # pp sexp / q_create_table
       tables = (sexp / q_create_table).map {|res|
         table = {}
         table[:table_name] = res['table_name']
@@ -98,12 +90,8 @@ module Description
 
     def build_column(col)
       column = {}
-      column[:name] = col['column_name']
-      column[:type] = col['column_type']
-      line = code_lines.detect {|line| line.include? column[:name].to_s }
-      comment = line.split("#")[1]
-      column[:comment] = comment.lstrip if comment
-      
+      column[:column_name] = col['column_name'].to_s
+      column[:column_type] = col['column_type'].to_s
       column
     end
 

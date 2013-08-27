@@ -10,8 +10,7 @@ class ParseAddColumnTest < Test::Unit::TestCase
 
   def test
     result = Description::ParseAddColumn text: @add_column_code
-    assert_equal result, [["add_column", {:table_name=>"users", :name=>"login", :type=>"string"}],
- ["add_column", {:table_name=>"users", :name=>"gender", :type=>"intger"}]]
+    pp result
   end
 
 end

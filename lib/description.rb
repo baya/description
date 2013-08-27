@@ -13,6 +13,7 @@ require 'optparse'
 require 'logger'
 
 require 'activities/parse_create_table'
+require 'activities/parse_create_table_with_comment'
 require 'activities/parse_add_column'
 require 'activities/create_markdown_table'
 require 'activities/describle_table'
