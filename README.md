@@ -9,7 +9,7 @@ Usage
 
 `describe path/to/a/rails-app` and visit http://localhost:9393
 
-Description be able to parse following ruby code
+Description could be able to parse following ruby code
 
 ```ruby
   class CreateContests < ActiveRecord::Migration
