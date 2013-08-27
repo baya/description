@@ -7,9 +7,9 @@ Description help us to extract database schema doc from migration files
 Usage
 ==========
 
-describe path/to/migration/dir
+`describe path/to/a/rails-app` and visit http://localhost:9393
 
-the following ruby migration code:
+Description be able to parse following ruby code
 
 ```ruby
   class CreateContests < ActiveRecord::Migration
@@ -40,7 +40,7 @@ end
 
 ```
 
-will be describled to a html table,
+to a markdown table like following,
 
 ### contests
 Column           | Type    | Modifiers             | Comment                                        

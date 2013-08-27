@@ -29,9 +29,6 @@ migration_files.each {|file|
 
   ops = ops.select {|op| op[:comment] }
 
-  pp ops
-  pp Description::Table_Set
-
   ops.each {|op|
     set = Description::Table_Set.detect {|set| set[:table_name] == op[:table_name]}
     column = set[:columns].detect {|column| column[:column_name] == op[:column_name]}
