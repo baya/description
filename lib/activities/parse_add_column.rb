@@ -12,10 +12,10 @@ module Description
       s(:call, nil, :add_column,
         s(:lit, atom % 'table_name'),
         s(:lit, atom % 'column_name'),
-        s(:lit, atom % 'column_type')
+        s(:lit, atom % 'column_type'),
+        ___
         )
     }
-
 
     def initialize(data)
       super
@@ -29,6 +29,7 @@ module Description
         op.merge build_column(col)
 
       }
+
     end
 
     private
