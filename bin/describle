@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-lib_dir = '/Users/jiangguimin/Projects/description/lib'
-# lib_dir = '/Users/jim/Projects/description/lib'
+# lib_dir = '/Users/jiangguimin/Projects/description/lib'
+lib_dir = '/Users/jim/Projects/description/lib'
 $LOAD_PATH.unshift lib_dir unless $LOAD_PATH.include?(lib_dir)
 require 'description'
 
@@ -12,8 +12,6 @@ raise 'Please specify the app dir, use -h option to see detail' if app_dir.nil?
 
 schema_file = "#{app_dir}/db/schema.rb"
 migration_files = Dir["#{app_dir}/db/migrate/**/*.rb"].sort
-
-pp migration_files
 
 Description::Table_Set = Description::ParseCreateTable text: File.read(schema_file)
 

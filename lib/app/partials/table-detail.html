@@ -3,6 +3,7 @@
     <a href="#/tables">所有表</a>
   </div>
   <div class="markdown-body">
+    Search Column: <input ng-model="query.column_name">
     <h3>{{table.table_name}}</h3>
     <table>
       <thead>
@@ -14,7 +15,7 @@
 	</tr>
       </thead>
       <tbody>
-	<tr ng-repeat="column in table.columns">
+	<tr ng-repeat="column in table.columns | filter:query:strict">
 	  <td>{{ column.column_name }}</td>
 	  <td>{{ column.column_type }}</td>
 	  <td>{{ column.modifiers }}</td>

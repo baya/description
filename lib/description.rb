@@ -1,5 +1,5 @@
-ground_dir = '/Users/jiangguimin/Projects/ground/lib'
-# ground_dir = '/Users/jim/Projects/ground/lib'
+# ground_dir = '/Users/jiangguimin/Projects/ground/lib'
+ground_dir = '/Users/jim/Projects/ground/lib'
 $LOAD_PATH.unshift ground_dir unless $LOAD_PATH.include?(ground_dir)
 
 require 'dun'
@@ -14,7 +14,9 @@ require 'logger'
 
 require 'activities/parse_create_table'
 require 'activities/parse_create_table_with_comment'
+require 'activities/parse_column'
 require 'activities/parse_add_column'
+require 'activities/parse_rename_column'
 require 'activities/create_markdown_table'
 require 'activities/describle_table'
 require 'activities/parse_command_options'

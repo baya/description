@@ -35,7 +35,8 @@ module Description
     def build_column(col)
       column = super
       code_line = code_lines.detect {|line|
-        line.include?(col['column_name'].to_s)
+        code, comment = line.split("#")
+        code.include?(col['column_name'].to_s)
       }
 
       comment = code_line.split("#")[1] if code_line
