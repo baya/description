@@ -35,8 +35,8 @@ module Description
       column[:column_type] = col['column_type'].to_s if col['column_type']
 
       code_line = code_lines.detect {|line|
-        code, comment = line.split("#")
-        code.include?(method_name) and code.include?(col['column_name'].to_s)
+        code, _ = line.split("#")
+        code and code.include?(method_name) and code.include?(col['column_name'].to_s)
       }
       comment = code_line.split("#")[1] if code_line
       column[:comment] = comment if comment
