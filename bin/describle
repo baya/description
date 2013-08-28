@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-# lib_dir = '/Users/jiangguimin/Projects/description/lib'
-lib_dir = '/Users/jim/Projects/description/lib'
+lib_dir = '/Users/jiangguimin/Projects/description/lib'
+# lib_dir = '/Users/jim/Projects/description/lib'
 $LOAD_PATH.unshift lib_dir unless $LOAD_PATH.include?(lib_dir)
 require 'description'
 
@@ -32,6 +32,7 @@ migration_files.each {|file|
   ops.each {|op|
     set = Description::Table_Set.detect {|set| set[:table_name] == op[:table_name]}
     column = set[:columns].detect {|column| column[:column_name] == op[:column_name]}
+    next if column.nil?
     column[:comment] = op[:comment]
   }
   
