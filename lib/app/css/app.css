@@ -125,3 +125,7 @@ table {
 .main{
     margin: 30px;
 }
+
+.nav a {
+    margin: 3px;
+}

@@ -1,19 +1,17 @@
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span3">
-      <!--Sidebar content-->
-
-      Search Table: <input ng-model="query.table_name">
-
+    <div class="nav">
+      <a href="/tables.md" class="">Markdown</a>
     </div>
-    <div class="span12">
-      
+    <div>
+      <div>
+        Search Table: <input ng-model="query.table_name">
+      </div>
       <ul>
         <li ng-repeat="table in tables | filter:query:strict">
           <a href="#/tables/{{table.table_name}}">{{table.table_name}}</a>
         </li>
       </ul>
-
     </div>
   </div>
 </div>

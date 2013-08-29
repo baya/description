@@ -7,12 +7,14 @@ module Tables
     def call
       if request_accept?(:json)
         json tables.to_json
-      else  
-        text = ''
+      elsif request_accept?(:md)  
+        markdown_text = ''
         tables.each {|table|
-          text << Description::DescribleTable(table) << "\n\n"
+          markdown_text << Description::DescribleTable(table) << "\n\n"
         }
-        html markdown(text)
+        text markdown_text
+      else
+        text tables
       end
     end
 
@@ -31,6 +33,8 @@ module Tables
       end
       if request_accept?(:json)
         json @table.to_json
+      elsif request_accept?(:md)
+        text Description::DescribleTable(@table)
       else
         text @table.inspect
       end
