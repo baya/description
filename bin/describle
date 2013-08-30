@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 
-# lib_dir = '/Users/jiangguimin/Projects/description/lib'
-lib_dir = '/Users/jim/Projects/description/lib'
-$LOAD_PATH.unshift lib_dir unless $LOAD_PATH.include?(lib_dir)
+lib_dir = File.join(File.dirname(__FILE__), '..', 'lib')
+$: << lib_dir
 require 'description'
 
 options = ParseCommandOptions args: ARGV
