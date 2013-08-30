@@ -7,7 +7,7 @@ Description help us to extract database schema doc from migration files
 Usage
 ==========
 
-`describe path/to/a/rails-app` and visit http://localhost:9393
+`bin/describe /path/to/a/rails-app` and then visit http://localhost:9393
 
 Description could be able to parse following ruby code
 
