@@ -1,0 +1,30 @@
+GIT
+  remote: git://github.com/baya/ground.git
+  revision: bd4f89f0073ccdd71efa518ef847e31320333380
+  ref: bd4f89f0073c
+  specs:
+    ground (0.0.1)
+      dun
+      rack
+
+GEM
+  remote: http://ruby.taobao.org/
+  specs:
+    dun (0.0.1)
+    json (1.8.0)
+    rack (1.5.2)
+    ruby_parser (3.2.2)
+      sexp_processor (~> 4.1)
+    sexp_path (0.5.1)
+      sexp_processor (~> 4.2)
+    sexp_processor (4.3.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dun
+  ground!
+  json
+  ruby_parser
+  sexp_path
