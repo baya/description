@@ -1,7 +1,3 @@
-# ground_dir = '/Users/jiangguimin/Projects/ground/lib'
-# ground_dir = '/Users/jim/Projects/ground/lib'
-# $LOAD_PATH.unshift ground_dir unless $LOAD_PATH.include?(ground_dir)
-
 require 'bundler'
 Bundler.require(:default)
 require 'pp'
