@@ -18,7 +18,7 @@ In the description dir, execute following code,
 
 ## Features
 
-Description could be able to parse following ruby code
+if you create a table contests:
 
 ```ruby
   class CreateContests < ActiveRecord::Migration
@@ -39,7 +39,17 @@ end
 
 ```
 
-to a markdown table like following,
+and you add a column:
+
+```ruby
+  class AddStatusToContests < ActiveRecord::Migration
+     def change
+        add_column :contests, :pub_status, :integer, default: 0 # 发布状态, 0 草稿, 1 发布
+     end
+  end
+```
+
+then description will parse them to a markdown table like following,
 
 ### contests
 Column           | Type    | Modifiers             | Comment                                        
@@ -51,5 +61,6 @@ contestant_right | integer |                       | 参赛权, 0 public, 1 frie
 logo             | string  |                       | 比赛logo,图片                                      
 itype            | integer | default:0, null:false | 比赛形式, 0 photo, 1 video, 2 word, 3 audio, 4 组合  
 mode             | integer | default:0, null:false | 是否可加入比赛, 0 pk, 1 调查, 2 多选                      
-format           | integer | default:0, null:false | 比赛方式, 1 pk, 0 binary(传统比赛)                     
+format           | integer | default:0, null:false | 比赛方式, 1 pk, 0 binary(传统比赛) 
+pub_status       | integer | default:0             | 发布状态, 0 草稿, 1 发布
 
