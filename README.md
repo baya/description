@@ -1,13 +1,22 @@
-Description
-==========
+# Description
 
 Description help us to extract database schema doc from migration files
 
 
-Usage
-==========
 
-`bin/describe /path/to/a/rails-app` and then visit http://localhost:9393
+## Install
+`git clone https://github.com/baya/description.git`
+`cd description`
+`bundle install`
+
+
+## Usage
+
+In the description dir, execute following code,
+
+`bin/describe /path/to/your/rails-app` and then use browser to visit http://localhost:9393
+
+## Features
 
 Description could be able to parse following ruby code
 
