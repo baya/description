@@ -22,6 +22,8 @@ module Description
   Table_Set = []
   App = Ground 'description' do
     use Rack::ShowExceptions
+    use Rack::ConditionalGet
+    use Rack::ETag
     use Rack::Static, urls: ['/js', '/css', '/lib', '/partials'], :root => "lib/app"
     use Ground::UrlSuffix
   end
