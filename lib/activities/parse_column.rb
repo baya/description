@@ -35,10 +35,10 @@ module Description
       column[:column_type] = col['column_type'].to_s if col['column_type']
 
       code_line = code_lines.detect {|line|
-        code, _ = line.split("#")
+        code, _ = line.split("comment:")
         code and code.include?(method_name) and code.include?(col['column_name'].to_s)
       }
-      comment = code_line.split("#")[1] if code_line
+      comment = code_line.split("comment:")[1] if code_line
       column[:comment] = comment if comment
 
       column

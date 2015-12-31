@@ -35,11 +35,11 @@ module Description
     def build_column(col)
       column = super
       code_line = code_lines.detect {|line|
-        code, _ = line.split("#")
+        code, _ = line.split("comment:")
         code and code.include?(col['column_name'].to_s)
       }
 
-      comment = code_line.split("#")[1] if code_line
+      comment = code_line.split("comment:")[1] if code_line
       column[:comment] = comment if comment
       
       column
